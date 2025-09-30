@@ -711,23 +711,32 @@
             
             <div class="projects-filter">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="portrait">Portraits</button>
-                <button class="filter-btn" data-filter="landscape">Landscapes</button>
+                <button class="filter-btn" data-filter="lost-meaning">On this night form lost meaning</button>
+                {% comment %} <button class="filter-btn" data-filter="landscape">Landscapes</button>
                 <button class="filter-btn" data-filter="wedding">Weddings</button>
-                <button class="filter-btn" data-filter="street">Street</button>
+                <button class="filter-btn" data-filter="street">Street</button> {% endcomment %}
             </div>
             
             <div class="projects-grid">
-                <div class="projects-item" data-category="portrait">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" alt="Portrait" class="projects-img">
+                <div class="projects-item" data-category="lost-meaning">
+                    <img src="https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236299/000124430010-positive_ywnskb.jpg" alt="Portrait" class="projects-img">
                     <div class="projects-overlay">
-                        <h3>Urban Portrait</h3>
-                        <p>Cityscape background with natural lighting</p>
-                        <a href="#" class="btn">View Full</a>
+                        {% comment %} <h3>Urban Portrait</h3> {% endcomment %}
+                        <p>Reaching for it</p>
+                        {% comment %} <a href="#" class="btn">View Full</a> {% endcomment %}
+                    </div>
+                </div>
+
+                <div class="projects-item" data-category="lost-meaning">
+                    <img src="https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236299/000124430009-positive_qt0sit.jpg" alt="Portrait" class="projects-img">
+                    <div class="projects-overlay">
+                        {% comment %} <h3>Studio Portrait</h3> {% endcomment %}
+                        <p>Facing the self</p>
+                        {% comment %} <a href="#" class="btn">View Full</a> {% endcomment %}
                     </div>
                 </div>
                 
-                <div class="projects-item" data-category="landscape">
+                {% comment %} <div class="projects-item" data-category="landscape">
                     <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Landscape" class="projects-img">
                     <div class="projects-overlay">
                         <h3>Mountain Range</h3>
@@ -754,15 +763,6 @@
                     </div>
                 </div>
                 
-                <div class="projects-item" data-category="portrait">
-                    <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4" alt="Portrait" class="projects-img">
-                    <div class="projects-overlay">
-                        <h3>Studio Portrait</h3>
-                        <p>High contrast black and white</p>
-                        <a href="#" class="btn">View Full</a>
-                    </div>
-                </div>
-                
                 <div class="projects-item" data-category="landscape">
                     <img src="https://images.unsplash.com/photo-1433086966358-54859d0ed716" alt="Landscape" class="projects-img">
                     <div class="projects-overlay">
@@ -770,7 +770,7 @@
                         <p>Misty morning in the woods</p>
                         <a href="#" class="btn">View Full</a>
                     </div>
-                </div>
+                </div> {% endcomment %}
             </div>
         </div>
     </section>
@@ -796,7 +796,6 @@
         <div class="container">
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Follow Me</h3>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>

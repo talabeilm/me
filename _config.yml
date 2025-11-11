@@ -1,0 +1,32 @@
+title: "Ademola Oladipo"
+description: "Photography Portfolio"
+baseurl: ""
+url: "https://yourdomain.com"
+twitter_username: talab_eilm
+github_username: talab_eilm
+instagram_username: "https://instagram.com/talab_eilm"
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Collections
+collections:
+  portfolio:
+    output: true
+    permalink: /portfolio/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "portfolio"
+    values:
+      layout: "portfolio"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

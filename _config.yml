@@ -2,9 +2,22 @@ title: "Ademola Oladipo"
 description: "Photography Portfolio"
 baseurl: ""
 url: "https://yourdomain.com"
-twitter_username: talab_eilm
-github_username: talab_eilm
+
+# Contact Information
+email: "self@qudus.me"
+phone: "+14375804959"
+location: "Toronto, Canada"
+
+# Social Links
+twitter: "https://twitter.com/talab_eilm"
 instagram_username: "https://instagram.com/talab_eilm"
+
+# Substack
+substack_username: "talabeilm"
+substack_url: "https://talabeilm.substack.com"
+
+# Formspree for contact form (free form handling)
+formspree_id: "mdkykazn"
 
 # Build settings
 markdown: kramdown

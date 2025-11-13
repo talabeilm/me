@@ -488,3 +488,31 @@ section {
     font-size: 2rem;
   }
 }
+
+/* Body padding for fixed header */
+body {
+  padding-top: 80px; /* Adjust based on your header height */
+}
+
+/* Header scroll margin for anchor links */
+.header-scroll-margin {
+  scroll-margin-top: 100px;
+}
+
+/* Ensure main content takes full height */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.site-footer {
+  flex-shrink: 0;
+}

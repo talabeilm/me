@@ -1,6 +1,269 @@
-<nav>
-  <a href="{{ '/' | relative_url }}">Home</a>
-  <a href="{{ '/portfolio/' | relative_url }}">Portfolio</a>
-  <a href="{{ '/about/' | relative_url }}">About</a>
-  <a href="#contact">Contact</a>
-</nav>
+<header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <a href="{{ '/' | relative_url }}" class="logo-link">
+          <h2>{{ site.title | default: "Your Name" }}</h2>
+        </a>
+      </div>
+      
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span class="hamburger"></span>
+        </button>
+        
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="{{ '/' | relative_url }}" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ '/portfolio/' | relative_url }}" class="nav-link">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ '/about/' | relative_url }}" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+          {% if site.substack_url %}
+          <li class="nav-item">
+            <a href="{{ site.substack_url }}" class="nav-link" target="_blank">Newsletter</a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style>
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.site-header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.logo h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* Main Navigation */
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 400;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Mobile Navigation */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger {
+  width: 20px;
+  height: 2px;
+  background: var(--primary-color);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.hamburger::before {
+  top: -6px;
+}
+
+.hamburger::after {
+  top: 6px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    gap: 0;
+  }
+
+  .nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-item {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+  }
+
+  /* Hamburger animation */
+  .nav-toggle.active .hamburger {
+    background: transparent;
+  }
+
+  .nav-toggle.active .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  .nav-toggle.active .hamburger::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+}
+
+/* Header scroll effect */
+.header-scroll-margin {
+  scroll-margin-top: 80px;
+}
+</style>
+
+<script>
+// Mobile navigation toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const header = document.querySelector('.site-header');
+
+  // Toggle mobile menu
+  if (navToggle) {
+    navToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+      navToggle.classList.toggle('active');
+    });
+  }
+
+  // Close mobile menu when clicking on links
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navMenu.classList.remove('active');
+      navToggle.classList.remove('active');
+    });
+  });
+
+  // Header scroll effect
+  if (header) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  }
+
+  // Add scroll margin to all anchor links for fixed header
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    const href = anchor.getAttribute('href');
+    if (href !== '#' && href !== '#top') {
+      const target = document.querySelector(href);
+      if (target) {
+        target.classList.add('header-scroll-margin');
+      }
+    }
+  });
+});
+</script>

@@ -38,8 +38,3 @@ defaults:
       type: "portfolio"
     values:
       layout: "portfolio"
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"

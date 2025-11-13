@@ -5,9 +5,7 @@ featured_image: "https://res.cloudinary.com/dlkw3mpf3/image/upload/v1762985743/h
 client: "Personal Project"
 equipment: "Nikon FM3A, 58mm f/1.4"
 tags:
-  - conceptual
-  - freedom
-  - color
+  - black and white
 gallery:
   - url: "https://res.cloudinary.com/dlkw3mpf3/image/upload/v1762985743/000064930002_tprnyl.jpg"
     alt: ""

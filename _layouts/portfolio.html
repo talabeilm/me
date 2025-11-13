@@ -1,0 +1,243 @@
+---
+layout: default
+---
+
+<article class="portfolio-project">
+  <div class="container">
+    <header class="project-header">
+      <nav class="project-nav">
+        <a href="/portfolio/" class="back-link">← Back to Portfolio</a>
+      </nav>
+      
+      <h1 class="project-title">{{ page.title }}</h1>
+      <p class="project-category">{{ page.category }}</p>
+      
+      {% if page.featured_image %}
+      <div class="project-hero">
+        <img src="{{ page.featured_image }}" alt="{{ page.title }}" class="project-hero-image">
+      </div>
+      {% endif %}
+    </header>
+
+    <div class="project-content">
+      <div class="project-main">
+        <div class="project-description">
+          {{ content }}
+        </div>
+        
+        {% if page.gallery %}
+        <div class="project-gallery">
+          <h2>Gallery</h2>
+          <div class="gallery-grid">
+            {% for image in page.gallery %}
+            <div class="gallery-item">
+              <img src="{{ image.url }}" alt="{{ image.alt }}" loading="lazy">
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      
+      <aside class="project-sidebar">
+        <div class="project-meta">
+          {% if page.client %}
+          <div class="meta-item">
+            <strong>Client</strong>
+            <span>{{ page.client }}</span>
+          </div>
+          {% endif %}
+          
+          {% if page.date %}
+          <div class="meta-item">
+            <strong>Date</strong>
+            <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %Y" }}</time>
+          </div>
+          {% endif %}
+          
+          {% if page.equipment %}
+          <div class="meta-item">
+            <strong>Equipment</strong>
+            <span>{{ page.equipment }}</span>
+          </div>
+          {% endif %}
+          
+          {% if page.location %}
+          <div class="meta-item">
+            <strong>Location</strong>
+            <span>{{ page.location }}</span>
+          </div>
+          {% endif %}
+        </div>
+        
+        {% if page.tags %}
+        <div class="project-tags">
+          <strong>Tags</strong>
+          <div class="tags">
+            {% for tag in page.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+      </aside>
+    </div>
+  </div>
+</article>
+
+<style>
+.project-header {
+  margin-bottom: 3rem;
+}
+
+.project-nav {
+  margin-bottom: 2rem;
+}
+
+.back-link {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.back-link:hover {
+  color: var(--primary-color);
+}
+
+.project-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.project-category {
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+.project-hero {
+  margin-top: 2rem;
+}
+
+.project-hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.project-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.project-description {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-color);
+}
+
+.project-description p {
+  margin-bottom: 1.5rem;
+}
+
+.project-gallery {
+  margin-top: 3rem;
+}
+
+.project-gallery h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Project Sidebar */
+.project-sidebar {
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+}
+
+.project-meta {
+  background: var(--light-gray);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.meta-item {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.meta-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.meta-item strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--secondary-color);
+}
+
+.project-tags strong {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: var(--light-gray);
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .project-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .project-sidebar {
+    position: static;
+  }
+  
+  .project-title {
+    font-size: 2rem;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

@@ -1,0 +1,277 @@
+---
+layout: default
+title: Portfolio
+permalink: /portfolio/
+---
+
+<section class="portfolio-page">
+  <div class="container">
+    <header class="portfolio-header">
+      <h1 class="page-title">Portfolio</h1>
+      <p class="page-subtitle">A collection of my photography work and projects</p>
+      
+      <!-- Portfolio Filters -->
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        {% assign categories = site.portfolio | map: 'category' | uniq %}
+        {% for category in categories %}
+          <button class="filter-btn" data-filter="{{ category | slugify }}">{{ category }}</button>
+        {% endfor %}
+      </div>
+    </header>
+
+    <!-- Portfolio Grid -->
+    <div class="portfolio-grid">
+      {% for project in site.portfolio %}
+      <div class="portfolio-item" data-category="{{ project.category | slugify }}">
+        <a href="{{ project.url }}" class="portfolio-link">
+          <div class="portfolio-image-container">
+            <img 
+              src="{{ project.featured_image }}" 
+              alt="{{ project.title }}"
+              class="portfolio-image"
+              loading="lazy"
+            >
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h3 class="portfolio-title">{{ project.title }}</h3>
+                <p class="portfolio-category">{{ project.category }}</p>
+                <span class="view-project">View Project →</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Empty State -->
+    {% if site.portfolio.size == 0 %}
+    <div class="empty-portfolio">
+      <h2>No projects yet</h2>
+      <p>Portfolio items will appear here once they're added.</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+.portfolio-page {
+  padding: 80px 0;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 1.125rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Portfolio Filters */
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border: 1px solid var(--border-color);
+  background: white;
+  color: var(--text-color);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.portfolio-item {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.portfolio-item.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.portfolio-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.portfolio-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  aspect-ratio: 4/3;
+}
+
+.portfolio-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-info {
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+.portfolio-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.portfolio-category {
+  color: #ccc;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.view-project {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.portfolio-link:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-link:hover .portfolio-image {
+  transform: scale(1.05);
+}
+
+/* Empty State */
+.empty-portfolio {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--secondary-color);
+}
+
+.empty-portfolio h2 {
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .portfolio-page {
+    padding: 60px 0;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .portfolio-filters {
+    gap: 0.5rem;
+  }
+  
+  .filter-btn {
+    padding: 6px 16px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .portfolio-info {
+    padding: 1rem;
+  }
+  
+  .portfolio-title {
+    font-size: 1.25rem;
+  }
+}
+</style>
+
+<script>
+// Portfolio filtering functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      
+      // Add active class to clicked button
+      this.classList.add('active');
+      
+      const filterValue = this.getAttribute('data-filter');
+      
+      // Filter portfolio items
+      portfolioItems.forEach(item => {
+        if (filterValue === 'all') {
+          item.classList.remove('hidden');
+        } else {
+          if (item.getAttribute('data-category') === filterValue) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        }
+      });
+    });
+  });
+});
+</script>

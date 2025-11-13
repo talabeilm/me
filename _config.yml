@@ -1,4 +1,4 @@
-title: "Ademola Oladipo"
+title: "Ade'"
 description: "Photography Portfolio"
 baseurl: "/me"
 url: "https://talabeilm.github.io"
@@ -25,12 +25,13 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 # Collections
 collections:
   portfolio:
     output: true
-    permalink: /portfolio/:path/
+    permalink: /portfolio/:name/
 
 # Defaults
 defaults:
@@ -39,3 +40,11 @@ defaults:
       type: "portfolio"
     values:
       layout: "portfolio"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache

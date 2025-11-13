@@ -34,7 +34,7 @@ description: Photography Portfolio and Blog
       {% endfor %}
     </div>
     <div class="section-cta">
-      <a href="/portfolio" class="btn btn-outline">View All Work</a>
+      <a href="#portfolio" class="btn btn-outline">View All Work</a>
     </div>
   </div>
 </section>
@@ -51,7 +51,7 @@ description: Photography Portfolio and Blog
         <div class="contact-details">
           <div class="contact-item">
             <strong>Email</strong>
-            <a href="mailto:{{ site.email }}">{{ site.email | default: 'your@email.com' }}</a>
+            <a href="mailto:{{ site.email }}">{{ site.email | default: 'self@qudus.me' }}</a>
           </div>
           {% if site.phone %}
           <div class="contact-item">
@@ -73,9 +73,6 @@ description: Photography Portfolio and Blog
           {% endif %}
           {% if site.twitter %}
           <a href="{{ site.twitter }}" class="social-link" target="_blank">Twitter</a>
-          {% endif %}
-          {% if site.linkedin %}
-          <a href="{{ site.linkedin }}" class="social-link" target="_blank">LinkedIn</a>
           {% endif %}
         </div>
       </div>
@@ -156,9 +153,9 @@ description: Photography Portfolio and Blog
       <div class="about-content">
         <h2 class="section-title">About Me</h2>
         <div class="about-text">
-          {{ site.about_preview | default: "I'm a photographer and visual storyteller passionate about capturing authentic moments and sharing stories through imagery. This website is a collection of my work, thoughts, and creative journey." }}
+          {{ site.about_preview | default: "My art is driven by a fascination with emotions, influenced by cinema and paintings. To explore this, I photograph the human body in sparse, open settings, using these spaces as a metaphor for our inner landscape." }}
         </div>
-        <a href="/about" class="btn btn-primary">Learn More</a>
+        <a href="#about" class="btn btn-primary">Learn More</a>
       </div>
     </div>
   </div>

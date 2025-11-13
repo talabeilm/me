@@ -7,9 +7,9 @@ date: 2024-01-15
 location: "Toro"
 equipment: "Fujifilm X-T4, 23mm f/2"
 tags:
-  - street
-  - black and white
-  - urban
+  - conceptual
+  - freedom
+  - color
 gallery:
   - url: "https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236300/000124430012-positive_sfb0ek.jpg"
     alt: ""

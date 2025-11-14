@@ -11,6 +11,10 @@ tags:
   - freedom
   - color
 gallery:
+  - url: "https://res.cloudinary.com/dlkw3mpf3/image/upload/v1763088463/000124430003-positive_vy7pgo.jpg"
+    alt: "Looking outwards"
+  - url: "https://res.cloudinary.com/dlkw3mpf3/image/upload/v1763088578/000124430004-positive_s2ddr1.jpg"
+    alt: "Shying from the inner self"
   - url: "https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236300/000124430012-positive_sfb0ek.jpg"
     alt: ""
   - url: "https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236299/000124430009-positive_qt0sit.jpg"

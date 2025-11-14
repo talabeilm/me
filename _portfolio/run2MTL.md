@@ -14,3 +14,8 @@ tags:
 ---
 
 Portrait photos of athletes participating in the Run To Montreal race.
+
+**About this project:**
+- Professional portrait session
+- Natural lighting
+- Post-processed in RawTherapee

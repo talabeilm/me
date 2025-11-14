@@ -1,0 +1,518 @@
+/* assets/css/style.css */
+:root {
+  --primary-color: #000000;
+  --secondary-color: #666666;
+  --accent-color: #ff6719;
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --light-gray: #f5f5f5;
+  --border-color: #e0e0e0;
+  --substack-light: #fff8f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--light-gray);
+  padding: 60px 20px;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  color: var(--primary-color);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--secondary-color);
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  text-decoration: none;
+  border: 2px solid var(--primary-color);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  background: transparent;
+  color: var(--primary-color);
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--primary-color);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn-outline {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Section Styles */
+section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: -0.02em;
+}
+
+.section-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  border-radius: 8px;
+}
+
+.portfolio-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 2rem;
+  text-align: center;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-item:hover .portfolio-image {
+  transform: scale(1.05);
+}
+
+.portfolio-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.portfolio-category {
+  color: #ccc;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Contact Section */
+.contact-section {
+  background: var(--light-gray);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.contact-info > p {
+  color: var(--secondary-color);
+  margin-bottom: 2rem;
+  font-size: 1.125rem;
+}
+
+.contact-details {
+  margin-bottom: 2rem;
+}
+
+.contact-item {
+  margin-bottom: 1.5rem;
+}
+
+.contact-item strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.contact-item a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  text-decoration: none;
+  color: var(--text-color);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* Contact Form */
+.contact-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Substack Section */
+.substack-section {
+  background: var(--substack-light);
+}
+
+.substack-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.substack-text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+.substack-benefits {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+
+.substack-benefits li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.substack-benefits li:last-child {
+  border-bottom: none;
+}
+
+.substack-widget {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* About Section */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.about-content {
+  padding: 0 2rem;
+}
+
+.about-text {
+  margin-bottom: 2rem;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--secondary-color);
+}
+
+/* Portfolio Filters */
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border: 1px solid var(--border-color);
+  background: white;
+  color: var(--text-color);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Portfolio Page Specific */
+.portfolio-page {
+  padding: 80px 0;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 1.125rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Utility Classes */
+.hidden {
+  display: none !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .about-grid,
+  .contact-grid,
+  .substack-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .about-content {
+    padding: 0;
+    text-align: center;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-form {
+    padding: 1.5rem;
+  }
+  
+  .portfolio-filters {
+    gap: 0.5rem;
+  }
+  
+  .filter-btn {
+    padding: 6px 16px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 60px 0;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+}
+
+/* Body padding for fixed header */
+body {
+  padding-top: 80px; /* Adjust based on your header height */
+}
+
+/* Header scroll margin for anchor links */
+.header-scroll-margin {
+  scroll-margin-top: 100px;
+}
+
+/* Ensure main content takes full height */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.site-footer {
+  flex-shrink: 0;
+}

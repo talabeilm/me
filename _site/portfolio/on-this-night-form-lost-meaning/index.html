@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On This Night Form Lost Meaning</title>
+    <meta name="description" content="Photography Portfolio">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/me/assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/me/assets/images/favicon.ico">
+</head>
+<body>
+    <header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <a href="/me/" class="logo-link">
+          <h2>Ade'</h2>
+        </a>
+      </div>
+      
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span class="hamburger"></span>
+        </button>
+        
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="/me/" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="/me/portfolio/" class="nav-link">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a href="/me/about/" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+          
+          <li class="nav-item">
+            <a href="https://talabeilm.substack.com" class="nav-link" target="_blank">Newsletter</a>
+          </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style>
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.site-header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.logo h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* Main Navigation */
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 400;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Mobile Navigation */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger {
+  width: 20px;
+  height: 2px;
+  background: var(--primary-color);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.hamburger::before {
+  top: -6px;
+}
+
+.hamburger::after {
+  top: 6px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    gap: 0;
+  }
+
+  .nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-item {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+  }
+
+  /* Hamburger animation */
+  .nav-toggle.active .hamburger {
+    background: transparent;
+  }
+
+  .nav-toggle.active .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  .nav-toggle.active .hamburger::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+}
+
+/* Header scroll effect */
+.header-scroll-margin {
+  scroll-margin-top: 80px;
+}
+</style>
+
+<script>
+// Mobile navigation toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const header = document.querySelector('.site-header');
+
+  // Toggle mobile menu
+  if (navToggle) {
+    navToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+      navToggle.classList.toggle('active');
+    });
+  }
+
+  // Close mobile menu when clicking on links
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navMenu.classList.remove('active');
+      navToggle.classList.remove('active');
+    });
+  });
+
+  // Header scroll effect
+  if (header) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  }
+
+  // Add scroll margin to all anchor links for fixed header
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    const href = anchor.getAttribute('href');
+    if (href !== '#' && href !== '#top') {
+      const target = document.querySelector(href);
+      if (target) {
+        target.classList.add('header-scroll-margin');
+      }
+    }
+  });
+});
+</script>
+
+    
+    <main>
+        <article class="portfolio-project">
+  <div class="container">
+    <header class="project-header">
+      <nav class="project-nav">
+        <a href="/portfolio/" class="back-link">← Back to Portfolio</a>
+      </nav>
+      
+      <h1 class="project-title">On This Night Form Lost Meaning</h1>
+      <p class="project-category">Fine Art</p>
+      
+      
+      <div class="project-hero">
+        <img src="https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236298/000124390010-positive_oofnyk.jpg" alt="On This Night Form Lost Meaning" class="project-hero-image">
+      </div>
+      
+    </header>
+
+    <div class="project-content">
+      <div class="project-main">
+        <div class="project-description">
+          <p>This ongoing project takes inspiration from the art of figure drawing, which involves sketching the human figure, often done live with a model who is either standing or sitting in a pose that fully emphasizes the figure. The process captures the essence of the human body’s musculature, texture, and postures. It’s a practice with an emphasis on learning the shape and movement of the human form through fast and often formless sketches.</p>
+
+        </div>
+        
+        
+        <div class="project-gallery">
+          <h2>Gallery</h2>
+          <div class="gallery-grid">
+            
+            <div class="gallery-item">
+              <img src="https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236300/000124430012-positive_sfb0ek.jpg" alt="" loading="lazy">
+            </div>
+            
+            <div class="gallery-item">
+              <img src="https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236299/000124430009-positive_qt0sit.jpg" alt="" loading="lazy">
+            </div>
+            
+            <div class="gallery-item">
+              <img src="https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236299/000124430010-positive_ywnskb.jpg" alt="" loading="lazy">
+            </div>
+            
+            <div class="gallery-item">
+              <img src="https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236298/000124390002-positive_ljjjik.jpg" alt="" loading="lazy">
+            </div>
+            
+            <div class="gallery-item">
+              <img src="https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236298/000124390010-positive_oofnyk.jpg" alt="" loading="lazy">
+            </div>
+            
+            <div class="gallery-item">
+              <img src="https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236297/000124390005-positive_yfgqzc.jpg" alt="" loading="lazy">
+            </div>
+            
+            <div class="gallery-item">
+              <img src="https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236297/000124420003-positive_yqquoo.jpg" alt="" loading="lazy">
+            </div>
+            
+            <div class="gallery-item">
+              <img src="https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236293/000124390004-positive_hwylt6.jpg" alt="" loading="lazy">
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+      <aside class="project-sidebar">
+        <div class="project-meta">
+          
+          <div class="meta-item">
+            <strong>Client</strong>
+            <span>Personal Project</span>
+          </div>
+          
+          
+          
+          <div class="meta-item">
+            <strong>Date</strong>
+            <time datetime="2024-01-15T00:00:00-05:00">January 2024</time>
+          </div>
+          
+          
+          
+          <div class="meta-item">
+            <strong>Equipment</strong>
+            <span>Fujifilm X-T4, 23mm f/2</span>
+          </div>
+          
+          
+          
+          <div class="meta-item">
+            <strong>Location</strong>
+            <span>Toro</span>
+          </div>
+          
+        </div>
+        
+        
+        <div class="project-tags">
+          <strong>Tags</strong>
+          <div class="tags">
+            
+            <span class="tag">conceptual</span>
+            
+            <span class="tag">freedom</span>
+            
+            <span class="tag">color</span>
+            
+          </div>
+        </div>
+        
+      </aside>
+    </div>
+  </div>
+</article>
+
+<style>
+.project-header {
+  margin-bottom: 3rem;
+}
+
+.project-nav {
+  margin-bottom: 2rem;
+}
+
+.back-link {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.back-link:hover {
+  color: var(--primary-color);
+}
+
+.project-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.project-category {
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+.project-hero {
+  margin-top: 2rem;
+}
+
+.project-hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.project-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.project-description {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-color);
+}
+
+.project-description p {
+  margin-bottom: 1.5rem;
+}
+
+.project-gallery {
+  margin-top: 3rem;
+}
+
+.project-gallery h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Project Sidebar */
+.project-sidebar {
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+}
+
+.project-meta {
+  background: var(--light-gray);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.meta-item {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.meta-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.meta-item strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--secondary-color);
+}
+
+.project-tags strong {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: var(--light-gray);
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .project-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .project-sidebar {
+    position: static;
+  }
+  
+  .project-title {
+    font-size: 2rem;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+    </main>
+    
+    <footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <h3 class="footer-logo">Ade'</h3>
+          <p class="footer-tagline">Photography Portfolio</p>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Navigation</h4>
+            <ul class="footer-nav">
+              <li><a href="/me/">Home</a></li>
+              <li><a href="/me/portfolio/">Portfolio</a></li>
+              <li><a href="/me/about/">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Connect</h4>
+            <ul class="footer-social">
+              
+              <li>
+                <a href="mailto:self@qudus.me">
+                  <span class="social-icon">✉️</span>
+                  Email
+                </a>
+              </li>
+              
+              
+              <li>
+                <a href="https://instagram.com/talab_eilm" target="_blank">
+                  <span class="social-icon">📷</span>
+                  Instagram
+                </a>
+              </li>
+              
+              
+              <li>
+                <a href="https://twitter.com/talab_eilm" target="_blank">
+                  <span class="social-icon">🐦</span>
+                  Twitter
+                </a>
+              </li>
+              
+              
+              <li>
+                <a href="https://talabeilm.substack.com" target="_blank">
+                  <span class="social-icon">📰</span>
+                  Newsletter
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <ul class="footer-legal">
+              <li><a href="/me/privacy/">Privacy Policy</a></li>
+              <li><a href="/me/terms/">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          <p>&copy; 2025 Ade'. All rights reserved.</p>
+        </div>
+        
+        <div class="footer-credits">
+          <p>Made with Jekyll & ❤️</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+.site-footer {
+  background: var(--primary-color);
+  color: white;
+  padding: 4rem 0 2rem;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 0;
+  color: white;
+}
+
+.footer-tagline {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.footer-column h4 {
+  color: white;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.footer-nav,
+.footer-social,
+.footer-legal {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-nav a,
+.footer-social a,
+.footer-legal a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-nav a:hover,
+.footer-social a:hover,
+.footer-legal a:hover {
+  color: white;
+}
+
+.social-icon {
+  font-size: 1rem;
+  width: 20px;
+  display: inline-block;
+  text-align: center;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-copyright p,
+.footer-credits p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+}
+
+.footer-credits p {
+  text-align: right;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footer-brand {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 3rem 0 1.5rem;
+  }
+  
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .footer-credits p {
+    text-align: center;
+  }
+  
+  .footer-social a {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    gap: 2rem;
+  }
+  
+  .footer-main {
+    gap: 1.5rem;
+  }
+  
+  .footer-links {
+    gap: 1.5rem;
+  }
+}
+</style>
+
+    
+    <!-- JavaScript -->
+    <script src="/me/assets/js/main.js"></script>
+</body>
+</html>

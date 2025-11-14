@@ -4,8 +4,8 @@ category: "Fine Art"
 featured_image: "https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236298/000124390010-positive_oofnyk.jpg"
 client: "Personal Project"
 date: 2024-01-15
-location: "Toro"
-equipment: "Fujifilm X-T4, 23mm f/2"
+location: "Toronto"
+equipment: "Rollei SL66, 80mm f/3.5"
 tags:
   - conceptual
   - freedom

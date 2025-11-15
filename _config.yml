@@ -1,7 +1,7 @@
 title: "Ade'"
 description: "Photography Portfolio"
-baseurl: ""
-url: "https://talabeilm.github.io/me"
+baseurl: "/me"
+url: "https://talabeilm.github.io"
 about_image: "https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759177368/007062570014_pfoc55.jpg"
 
 # Contact Information

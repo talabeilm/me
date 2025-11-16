@@ -27,9 +27,9 @@ gallery:
     alt: ""
   - url: "https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236297/000124390005-positive_yfgqzc.jpg"
     alt: ""
-  - url: "https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236297/000124420003-positive_yqquoo.jpg"
-    alt: ""
   - url: "https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236293/000124390004-positive_hwylt6.jpg"
+    alt: ""
+  - url: "https://res.cloudinary.com/dlkw3mpf3/image/upload/v1759236297/000124420003-positive_yqquoo.jpg"
     alt: ""
 ---
 

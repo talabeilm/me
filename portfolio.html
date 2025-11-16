@@ -24,7 +24,7 @@ permalink: /portfolio/
     <div class="portfolio-grid">
       {% for project in site.portfolio %}
       <div class="portfolio-item" data-category="{{ project.category | slugify }}">
-        <a href="{{ project.url }}" class="portfolio-link">
+        <a href="{{ project.url | relative_url }}" class="portfolio-link">
           <div class="portfolio-image-container">
             <img 
               src="{{ project.featured_image }}" 

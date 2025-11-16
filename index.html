@@ -9,7 +9,7 @@ title: Home
     <h1 class="hero-title">{{ site.title | default: "Your Name" }}</h1>
     <p class="hero-subtitle">{{ site.description | default: "Photography & Visual Storytelling" }}</p>
     <div class="hero-cta">
-      <a href="/portfolio" class="btn btn-primary">View Portfolio</a>
+      <a href="{{ '/portfolio' | relative_url }}" class="btn btn-primary">View Portfolio</a>
       <a href="#contact" class="btn btn-secondary">Inquire Here</a>
     </div>
   </div>

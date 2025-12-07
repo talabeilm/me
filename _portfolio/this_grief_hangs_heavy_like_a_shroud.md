@@ -22,6 +22,10 @@ gallery:
     alt: ""
   - url: "https://res.cloudinary.com/dlkw3mpf3/image/upload/v1762985743/000064930002_tprnyl.jpg"
     alt: ""
+  - url: "https://res.cloudinary.com/dlkw3mpf3/image/upload/v1765152032/000203330032_v2_i1r5rw.jpg"
+    alt: ""
+  - url: "https://res.cloudinary.com/dlkw3mpf3/image/upload/v1765147625/000203290016_jxbwhs.jpg"
+    alt: ""
 ---
 
 This body of work is about grief. The ongoing, never ending experience we go through nigh on everyday of our lives. 
